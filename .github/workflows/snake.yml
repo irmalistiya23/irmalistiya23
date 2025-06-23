@@ -18,12 +18,15 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: Platane/snk@v3
+      - name: Generate snake animation
+        uses: Platane/snk@v3
         id: snake-gif
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
             dist/github-contribution-grid-snake.svg
+          color_snake: "#ff8c00" 
+          color_dots: "#d1c4e9,#b39ddb,#9575cd,#7e57c2,#673ab7"  
 
       - name: List generated files
         run: ls -la dist
